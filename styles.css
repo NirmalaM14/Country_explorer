@@ -1,0 +1,384 @@
+General Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styling */
+header {
+  background-color: #333;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.filters button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  padding: 20px;
+}
+
+/* aside {
+  width: 30%;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+} */
+
+#countryList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1em;
+}
+
+
+.country-card {
+  flex: 1 1 20%; /* Reduce width to 25% */
+  padding: 0.8em; /* Adjust padding */
+  background-color: #fff;
+  border: 1px solid black; /* Add black border */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.country-card img {
+  width: 70%; /* Adjust image width for smaller card */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.8em;
+}
+
+.country-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Modal for Country Details */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  align-items: center;
+  justify-content: center;
+}
+
+#countryInfo {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #countryList {
+      flex-direction: column;
+  }
+
+  .country-card {
+      flex: 1 1 100%;
+  }
+
+  aside {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+  }
+
+  .filters {
+      flex-direction: column;
+  }
+}
+.favorite-icon {
+  cursor: pointer;
+  font-size: 1.5em; /* Adjust size as needed */
+  color: #e61c1c; /* Red color for filled heart */
+}
+
+.favorite-icon i {
+  transition: color 0.3s ease;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+
+#countryInfo button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.favorite-icon {
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #ff0000;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.country-card button {
+  background-color: #28a745;
+  margin-top: 10px;
+}
+
+.country-card button:hover {
+  background-color: #218838;
+}
+
+.go-back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.go-back-button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 5px 10px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.go-back-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.go-back-btn:hover {
+    background-color: #45a049;
+}
+/* General Styles for Smaller Screens */
+@media (max-width: 768px) {
+  header {
+      padding: 10px 15px;
+  }
+
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .logo {
+      font-size: 20px;
+  }
+
+  .filters {
+      flex-direction: column;
+      gap: 5px;
+  }
+
+  .filters input,
+  .filters select,
+  .filters button {
+      width: 100%;
+  }
+
+  #countryList {
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .country-card {
+      flex: 1 1 100%;
+  }
+
+  .modal-content {
+      width: 90%;
+  }
+
+  .close-btn {
+      font-size: 24px;
+  }
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+  .navbar {
+      padding: 10px 15px;
+  }
+
+  .filters {
+      flex-wrap: wrap;
+  }
+
+  .filters input,
+  .filters select {
+      flex: 1 1 45%;
+  }
+
+  #countryList {
+      padding: 15px;
+  }
+
+  .country-card {
+      flex: 1 1 30%;
+  }
+
+  .modal-content {
+      width: 70%;
+  }
+
+  .close-btn {
+      font-size: 26px;
+  }
+}
+
+/* Larger Screens (Desktops) */
+@media (min-width: 1025px) {
+  .navbar {
+      padding: 15px 20px;
+  }
+
+  .filters {
+      gap: 15px;
+  }
+
+  #countryList {
+      padding: 20px;
+  }
+
+  .country-card {
+      flex: 1 1 20%;
+  }
+
+  .modal-content {
+      width: 60%;
+  }
+
+  .close-btn {
+      font-size: 28px;
+  }
+}
+
+/* Extra Large Screens (Large Desktops) */
+@media (min-width: 1440px) {
+  .navbar {
+      padding: 20px 30px;
+  }
+
+  .filters {
+      gap: 20px;
+  }
+
+  #countryList {
+      padding: 30px;
+  }
+
+  .country-card {
+      flex: 1 1 20%;
+  }
+
+  .modal-content {
+      width: 50%;
+  }
+
+  .close-btn {
+      font-size: 30px;
+  }
+}
